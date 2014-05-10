@@ -9,7 +9,9 @@ q1.bf: q.bf
 
 test: q.bf q1.bf
 	@if cmp $^; then \
-		echo "OK"; rm -f $^; \
+		echo "OK"; \
+		echo "$$(wc -c q.bf) bytes"; \
+		rm -f $^; \
 	else\
 		echo FAIL; exit 1; \
 	fi
