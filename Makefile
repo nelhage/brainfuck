@@ -1,11 +1,13 @@
+BF = beef
+
 quine.bf: gen.py tail.bf
 	python gen.py
 
 q.bf: quine.bf
-	beef "$?" > "$@"
+	$(BF) "$?" > "$@"
 
 q1.bf: q.bf
-	beef "$?" > "$@"
+	$(BF) "$?" > "$@"
 
 test: q.bf q1.bf
 	@if cmp $^; then \
